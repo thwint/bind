@@ -1,3 +1,8 @@
+include "/etc/bind/rndc.key";
+controls {
+    inet 127.0.0.1 port 953
+    allow { 127.0.0.1; } keys { "rndc-key"; };
+};
 options {
 	directory "/var/bind";
 
@@ -62,4 +67,5 @@ options {
 
 // You can include files:
 //include "/etc/bind/example.conf";
+include "/etc/bind/named.conf.local";
 

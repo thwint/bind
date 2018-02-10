@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/thwint/bind/status "Docker Repository on Quay")](https://quay.io/repository/thwint/bind)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 # Dockerized DNS server
 Bind DNS server running in a Docker container. 
 ## Configuration

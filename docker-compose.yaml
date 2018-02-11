@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  bind:
+    image: quay.io/thwint/bind:latest
+    container_name: bind
+    hostname: bind
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    environment:
+      - ENABLE_IPV6=true
+      - ALLOW_TRANSFER=173.244.206.26;88.198.106.11;108.61.224.67;103.6.87.125;185.136.176.247
+    volumes:
+      - /data/bind/master:/var/bind/pri
+      - /data/bind/named.conf.local:/etc/bind/named.conf.local

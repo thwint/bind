@@ -38,7 +38,7 @@ Many options can be configured using environment variables
     DNSSEC_ENABLE           no                  Enable DNSSEC support
     DNSSEC_VALIDATION       no                  Enable DNSSEC validation
     ENABLE_IPV6             false               Listen on IPv6
-    FORWARDERS              8.8.8.8; 8.8.8.4;   Specifies the IP addresses to be used for forwarding
+    FORWARDERS              8.8.8.8; 8.8.8.4    Specifies the IP addresses to be used for forwarding
     MAX_CACHE_SIZE          100M                The maximum amount of memory to use for the server's cache
     MAX_CACHE_TTL           60                  Set a maximum retention time for negative answers
     MAX_NCACHE_TTL          60                  Set a maximum retention time for positive answers
@@ -50,15 +50,15 @@ inside the container.
 ### New zones
 To add new zones the nameserver needs to be reconfigured.
 
-    rndc reconfigure
+    docker exec -ti bind rndc reconfigure
 
 ### Modified zones
 Modified zones have to be reloaded. 
 
-    rndc reload <zone>
+    docker exec -ti bind rndc reload <zone>
     
     Example:
-    rndc reload google.com
+    rdocker exec -ti bind ndc reload google.com
 
 ## run
 ### docker-compose.yaml
@@ -69,7 +69,8 @@ Modified zones have to be reloaded.
         container_name: bind
         hostname: bind
         environment:
-          ENABLE_IPV6: true
+          - ENABLE_IPV6=true
+          - ALLOW_TRANSFER=173.244.206.26;88.198.106.11;108.61.224.67;103.6.87.125;185.136.176.247
         volumes:
           - /data/bind/master:/var/bind/pri
           - /data/bind/named.conf.local:/etc/bind/named.conf.local

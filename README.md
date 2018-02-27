@@ -38,7 +38,7 @@ Many options can be configured using environment variables
     DNSSEC_ENABLE           no                  Enable DNSSEC support
     DNSSEC_VALIDATION       no                  Enable DNSSEC validation
     ENABLE_IPV6             false               Listen on IPv6
-    FORWARDERS              8.8.8.8; 8.8.8.4    Specifies the IP addresses to be used for forwarding
+    FORWARDERS              8.8.8.8; 8.8.4.4    Specifies the IP addresses to be used for forwarding
     MAX_CACHE_SIZE          100M                The maximum amount of memory to use for the server's cache
     MAX_CACHE_TTL           60                  Set a maximum retention time for negative answers
     MAX_NCACHE_TTL          60                  Set a maximum retention time for positive answers
